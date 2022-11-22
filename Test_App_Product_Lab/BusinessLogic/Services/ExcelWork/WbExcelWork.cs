@@ -32,7 +32,15 @@ namespace Test_App_Product_Lab.BusinessLogic.Services.ExcelWork
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             using (var package = new ExcelPackage(new FileInfo(Path)))
             {
-                package.Workbook.Worksheets.Add(searchParameterName);
+                var item = package.Workbook.Worksheets.FirstOrDefault(x => x.Name == searchParameterName);
+                if (item == null)
+                {
+                    package.Workbook.Worksheets.Add(searchParameterName);
+                }
+                else
+                {
+                    item.Select(); 
+                }
                 var headerRow = new List<string[]>()
                     {
                         new [] { ExcelConstants.TitleColNameExcel, ExcelConstants.BrandColNameExcel, ExcelConstants.IdColNameExcel, ExcelConstants.FeedbacksColNameExcel, ExcelConstants.PriceColNameExcel }
