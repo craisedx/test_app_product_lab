@@ -1,19 +1,10 @@
 ﻿using System;
 using System.IO;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-using OfficeOpenXml;
 using Test_App_Product_Lab.BusinessLogic.Services;
 using Test_App_Product_Lab.BusinessLogic.Services.Marketplaces.Wildberries;
-using Test_App_Product_Lab.Proxy;
 using Test_App_Product_Lab.BusinessLogic.Services.FileWork;
 using Test_App_Product_Lab.BusinessLogic.Interfaces;
-using Test_App_Product_Lab.Constants;
-using Test_App_Product_Lab.Models;
 
 namespace Test_App_Product_Lab
 {
@@ -33,7 +24,7 @@ namespace Test_App_Product_Lab
                 var wildberries = new MarketplaceContext(new Wildberries());
 
                 //add the path to your file for reading.
-                IFileWork fileRead = new FileWork(@"C:/text.txt");
+                IFileWork fileRead = new FileWork(@"F:/work/text.txt");
 
                 var fileNamesToSearch = await fileRead.GetNamesToSearch();
 
